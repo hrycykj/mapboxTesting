@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 import MapboxGL from '@react-native-mapbox-gl/maps';
 
 import Marker from './components/Marker'
+import CentreMapView from './components/CentreMapView'
 import markerMe from './assets/map_pin2.png'
 
 MapboxGL.setAccessToken('pk.eyJ1Ijoid29vamFlIiwiYSI6ImNreWR5b3UxNTBjMGoyb3NoMjk4eXUxbHcifQ.n4z9_obSqP5bOL6Sq-T5tA');
@@ -21,16 +22,16 @@ export default function App() {
             pitchEnabled={false}
             rotateEnabled={false}
           >
-            <MapboxGL.Camera
-              zoomLevel={17}
-              // bearing={0}
-              pitch={0}
-              centerCoordinate={coordsMe}
-              animationMode={'flyTo'}
-              animationDuration={0}
-          	/>
+            <CentreMapView 
+              coords1 = {coordsMe}
+              coords2 = {coordsSaddledome}
+            />
             <Marker
               coords = {coordsMe}
+              img = {markerMe}
+            />
+            <Marker
+              coords = {coordsSaddledome}
               img = {markerMe}
             />
             {/* <MapboxGL.UserLocation

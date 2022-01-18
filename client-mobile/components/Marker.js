@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { Image } from 'react-native';
 import MapboxGL from '@react-native-mapbox-gl/maps';
 
 const Marker = (props) => {
