@@ -1,11 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import MapboxGL from '@react-native-mapbox-gl/maps';
 
 import Marker from './components/Marker'
 import CentreMapView from './components/CentreMapView'
 import RoutePolyline from './components/RoutePolyline'
-import markerMe from './assets/map_pin2.png'
+import markerMe from './assets/Pin_Trans.png'
+
+const screenMapWidth = Dimensions.get('window').width
+const screenMapHeight = Dimensions.get('window').height
 
 MapboxGL.setAccessToken('pk.eyJ1Ijoid29vamFlIiwiYSI6ImNreWR5b3UxNTBjMGoyb3NoMjk4eXUxbHcifQ.n4z9_obSqP5bOL6Sq-T5tA');
 
@@ -47,10 +50,12 @@ export default function App() {
             <Marker
               coords = {coordsMe}
               img = {markerMe}
+              anchor = {{x: 0.5, y:1.0}}
             />
             <Marker
               coords = {coordsFinish}
               img = {markerMe}
+              anchor = {{x: 0.5, y:1.0}}
             />
             <RoutePolyline
               coordinateArray= {routeGeoJSON}
@@ -73,8 +78,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   container: {
-    height: 300,
-    width: 300,
+    height: screenMapHeight,
+    width: screenMapWidth,
     backgroundColor: 'tomato'
   },
   map: {
